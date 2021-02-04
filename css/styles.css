@@ -1,0 +1,89 @@
+body {
+  direction: ltr;
+  text-align: left;
+}
+body,
+input,
+textarea {
+  font: 14px Tahoma, Verdana, Arial, sans-serif;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#searchBar {
+  display: flex;
+  flex-direction: row;
+}
+
+#searchField {
+  padding: 0 8px;
+  border: 2px solid #ddd;
+  cursor: text;
+  font: 14px Tahoma, Verdana, Arial, sans-serif;
+  width: 80vw;
+  max-width: 512px;
+  height: 32px;
+  line-height: 32px;
+  color: #333;
+  background-color: transparent;
+}
+
+#searchField:focus {
+  outline: none
+}
+
+.gistItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.125);
+  width: 80vw;
+  max-width: 600px;
+  border-radius: 0.25rem;
+}
+.gistItemSection {
+  display: flex;
+  border: 1px solid rgba(0,0,0,.125);
+  padding: .75rem 1.25rem;
+  flex-wrap: wrap;
+  max-height: 100px;
+  overflow: scroll;
+}
+
+.languageTag {
+  padding: 0 10px 0 10px;
+  border-radius: 700px;
+  border: 1px solid transparent;
+  background: green;
+  color: whitesmoke;
+  margin: 5px;
+  margin-left: 0;
+}
+
+.userBadge {
+  display: flex;
+  padding: 0 10px 0 10px;
+  border-radius: 700px;
+  border: 1px solid transparent;
+  background: #bbbbbb;
+  color: white;
+  margin: 5px;
+  margin-left: 0;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.userBadgeLogo {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 10px;
+  margin-left: -10px;
+}
+
