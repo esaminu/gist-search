@@ -27,22 +27,20 @@ function Main() {
 
   React.useEffect(() => {
     if (isBottom) {
-      fetchGists()
+      fetchGists();
     }
   }, [isBottom]);
 
-  const fetchGists = React.useCallback(
-    () => {
-      if (searching) return;
-      setSearching(true);
-      return fetchGistsForUser(text, page + 1)
-        .then((arr) => setGists(gists.concat(arr)))
-        .then(() => setSearching(false))
-        .then(() => setPage(page + 1))
-        .then(() => setIsBottom(false));
-    },
-    [searching, text, page]
-  );
+  const fetchGists = React.useCallback(() => {
+    if (searching) return;
+    setSearching(true);
+    return fetchGistsForUser(text, page + 1)
+      .then((arr) => setGists(gists.concat(arr)))
+      .then(() => setSearching(false))
+      .then(() => setPage(page + 1))
+      .then(() => setIsBottom(false))
+      .catch(() => setSearching(false));
+  }, [searching, text, page]);
 
   return (
     <div id="container">
@@ -57,7 +55,7 @@ function Main() {
           }
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              fetchGistsForUser(text).then(setGists);
+              fetchGists();
             }
           }}
           style={{ borderColor: "#aaa" }}
