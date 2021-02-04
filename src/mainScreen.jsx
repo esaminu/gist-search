@@ -42,6 +42,17 @@ function Main() {
       .catch(() => setSearching(false));
   }, [searching, text, page]);
 
+  const fetchNewGists = React.useCallback(() => {
+    if (searching) return;
+    setSearching(true);
+    return fetchGistsForUser(text, 1)
+      .then((arr) => setGists(arr))
+      .then(() => setSearching(false))
+      .then(() => setPage(1))
+      .then(() => setIsBottom(false))
+      .catch(() => setSearching(false));
+  }, [searching, text]);
+
   return (
     <div id="container">
       <div id="searchBar">
@@ -55,7 +66,7 @@ function Main() {
           }
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              fetchGists();
+              fetchNewGists();
             }
           }}
           style={{ borderColor: "#aaa" }}
@@ -63,7 +74,9 @@ function Main() {
         <input
           type="button"
           disabled={searching}
-          onClick={fetchGists}
+          onClick={() => {
+            fetchNewGists();
+          }}
           style={{ width: 70 }}
           value="Search"
         />
