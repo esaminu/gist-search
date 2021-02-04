@@ -1,5 +1,5 @@
 import { UserTag } from './userTag'
-import { fetchForkersForGist } from "./validateEmail";
+import { fetchForkersForGist } from "./api";
 
 export const GistItem = ({ name, languages, id, gistUrl}) => {
     const [forkers, setForkers] = React.useState([]);
