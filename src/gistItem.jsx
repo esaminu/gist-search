@@ -31,7 +31,7 @@ export const GistItem = ({ name, languages, id, gistUrl}) => {
           {forkers && forkers.length ? (
             <div className="gistItemSection">
               <b style={{ width: "100%" }}>Recent Forkers</b>
-              {forkers.map(({ login, avatar_url, profileUrl }, i) => (
+              {forkers.slice(0,3).map(({ login, avatar_url, profileUrl }, i) => (
                 <UserTag login={login} avatar_url={avatar_url} key={avatar_url + i} profileUrl={profileUrl} />
               ))}
             </div>
